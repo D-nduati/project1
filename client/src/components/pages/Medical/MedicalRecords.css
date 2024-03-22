@@ -1,0 +1,51 @@
+div {
+  margin: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+input[type="file"] {
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+pre {
+  background-color: #f5f8fa;
+  padding: 10px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  margin-top: 10px;
+}

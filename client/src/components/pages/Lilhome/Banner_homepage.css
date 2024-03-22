@@ -1,0 +1,63 @@
+.banner-container {
+    position: relative;
+    background: linear-gradient(to bottom right, rgb(60, 153, 205), rgb(23, 214, 189));
+    width: 100%;
+    height: auto;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .banner-video {
+    position: absolute;
+    top: 5%;
+    right: 10px;
+    width: 50%;
+    height: 90%;
+    border-radius: 2px;
+    object-fit: cover;
+    
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .banner-video.visible {
+    z-index: 1;
+    opacity: 1;
+  }
+  
+  .banner-left {
+    width: 45%;
+    padding: 70px 0 0 130px;
+    align-content: center;
+  }
+  
+  .banner-right {
+    width: 45%;
+    padding-right: 40px;
+  }
+  
+  .text-content {
+    display: block;
+    text-align: left;
+  }
+  
+  .text-content span {
+    line-height: 40px;
+    font-size: 40px;
+  }
+  
+  .text-content p {
+    font-size: 19px;
+  }
+  
+  button {
+    background-color: rgb(102, 128, 243);
+    margin-top: 15px;
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    width: 145px;
+    height: 45px;
+  }
+  
+ 
+  

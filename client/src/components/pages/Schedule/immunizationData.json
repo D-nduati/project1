@@ -1,0 +1,252 @@
+[
+  {
+    "name": "BCG (Bacillus Calmette-Guerin)",
+    "schedule": "Given at birth",
+    "details": "Injection: 0.05ml under the skin (intra-dermal) of the left forearm. Helps protect the child against Tuberculosis (TB)"
+  },
+  {
+    "name": "Polio Vaccine",
+    "schedule": "Given at 6, 10, and 14 weeks of age",
+    "details": "Dose: 2 drops per oral. Helps protect the child against poliomyelitis (polio) to avert crippling in children."
+  },
+  {
+    "name": "Polio Vaccine",
+    "schedule": "Given at 6, 10, and 14 weeks of age",
+    "details": "Dose: 2 drops administered. Children can safely receive the polio booster any time before they are 5 years old."
+  },
+  {
+    "name": "Pentavalent Vaccine",
+    "schedule": "Given at 6, 10, and 14 weeks of age",
+    "details": "Dose: 0.5mls Intra muscular left outer thigh. Contains a combination of five vaccines, acting against diphtheria, pertussis, tetanus, Hepatitis B, and Haemophilus Influenza."
+  },
+  {
+    "name": "Pneumococcal Vaccine",
+    "schedule": "Given at 6, 10, and 14 weeks of age",
+    "details": "Dose: 0.5ml Intra muscular right outer thigh. Helps prevent pneumonia and was added in 2012."
+  },
+  {
+    "name": "Rota Virus vaccine",
+    "schedule": "Given at 6 & 10 weeks",
+    "details": "Dose: 1.5mls administered orally. Helps prevent rotavirus infection, the leading cause of diarrheal diseases in children worldwide."
+  },
+  {
+    "name": "Measles Rubella Vaccine",
+    "schedule": "At 6 Months",
+    "details": "In the event of a measles rubella outbreak or HIV exposed children."
+  },
+  {
+    "name": "Flu vaccine",
+    "schedule": "At 6 Months",
+    "details": "Vitamin A 100000iu per Oral."
+  },
+  {
+    "name": "1st Dose Measles Rubella Vaccine",
+    "schedule": "At 9 Months",
+    "details": "Dose: 0.5ml subcutaneously right upper arm."
+  },
+  {
+    "name": "Vitamin A",
+    "schedule": "At 12 Months",
+    "details": "Dose: 200000 IU. Deworming with Albendazole 200mg."
+  },
+  {
+    "name": "2nd Dose Measles Rubella Vaccine",
+    "schedule": "At 18 Months",
+    "details": "Dose: 0.5ml subcutaneous right upper arm. Vitamin A 200000 IU and deworming with Albendazole 200mg."
+  },
+  {
+    "name": "Yellow Fever Vaccine",
+    "schedule": "At 9 Months (Only in selected counties)",
+    "details": "Dose: 0.5mls Intra Muscular left upper deltoid. N/B: Vitamin A and Deworming are given to the child at 1 year and repeat after every 6 months until the child is 5 years old."
+  },
+  {
+    "name": "HPV (Human Papilloma Virus)",
+    "schedule": "At 10 Years",
+    "details": "Given in two doses: 1st Dose, then 2nd Dose after 6 months. N/B: For HIV exposed girls, receive 3 doses 6 months apart."
+  },
+  {
+    "name": "BCG",
+    "schedule": "At Birth",
+    "details": "Baby Friendly Vaccines - BIRTH."
+  },
+  {
+    "name": "Oral polio",
+    "schedule": "At Birth",
+    "details": "Baby Friendly Vaccines - BIRTH."
+  },
+  {
+    "name": "Hepatitis B",
+    "schedule": "At Birth",
+    "details": "Dose: 0.5mls Intra muscular. Baby Friendly Vaccines - BIRTH."
+  },
+  {
+    "name": "Hexaxim/infanrix",
+    "schedule": "At 6, 10 & 14 Weeks",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Rotarix",
+    "schedule": "At 6, 10 & 14 Weeks",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Prevenar 13",
+    "schedule": "At 6, 10 & 14 Weeks",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Oral polio",
+    "schedule": "At 6, 10 & 14 Weeks",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Flu Vaccine",
+    "schedule": "At 6 Months",
+    "details": "Vitamin A 100000iu. Baby Friendly Vaccines."
+  },
+  {
+    "name": "Flu Vaccine",
+    "schedule": "At 7 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "MMR (Measles, Mumps, Rubella)",
+    "schedule": "At 9 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Yellow fever vaccine",
+    "schedule": "At 9 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Meningoccal ACY and W conjugate",
+    "schedule": "At 10 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Vitamin A",
+    "schedule": "At 1 Year",
+    "details": "Dose: 200000iu. Baby Friendly Vaccines."
+  },
+  {
+    "name": "Hepatitis A",
+    "schedule": "At 1 Year",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Varicella",
+    "schedule": "At 1 Year",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Dewormer",
+    "schedule": "At 1 Year",
+    "details": "Dose: 200mg. Baby Friendly Vaccines."
+  },
+  {
+    "name": "Meningoccal Vaccine",
+    "schedule": "At 15 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "MMR (Measles, Mumps, Rubella)",
+    "schedule": "At 15 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Hexaxim/Infanrix Booster",
+    "schedule": "At 18 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "MMR (Measles, Mumps, Rubella)",
+    "schedule": "At 18 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Vitamin A",
+    "schedule": "At 18 Months",
+    "details": "Dose: 200000 IU. Dewormer. Baby Friendly Vaccines."
+  },
+  {
+    "name": "Dewormer",
+    "schedule": "At 18 Months",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Typhoid Vaccine",
+    "schedule": "At 2 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Flu Vaccine",
+    "schedule": "At 2 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Dewormer",
+    "schedule": "At 2 Years",
+    "details": "Dose: 200,000iu. Baby Friendly Vaccines."
+  },
+  {
+    "name": "Vitamin A",
+    "schedule": "At 2 Years",
+    "details": "Dose: 200,000iu. Baby Friendly Vaccines."
+  },
+  {
+    "name": "Booster",
+    "schedule": "At 5 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "IPV (Inactivated Polio Vaccine)",
+    "schedule": "At 5 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Typhoid Vaccine",
+    "schedule": "At 5 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Flu vaccine",
+    "schedule": "At 5 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "HPV (Human Papilloma Virus)",
+    "schedule": "At 9 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Flu vaccine",
+    "schedule": "At 9 Years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Flu vaccine",
+    "schedule": "Annually",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Typhoid Vaccine",
+    "schedule": "Revaccination every 3 years",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Meningococcal Vaccine",
+    "schedule": "Revaccination",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Cholera Vaccine",
+    "schedule": "Revaccination",
+    "details": "Baby Friendly Vaccines."
+  },
+  {
+    "name": "Verorab/Antirabies",
+    "schedule": "Revaccination",
+    "details": "Baby Friendly Vaccines."
+  }
+]
