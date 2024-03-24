@@ -1,0 +1,2 @@
+no username in the table for checklist for specific user
+notifications module should check it out

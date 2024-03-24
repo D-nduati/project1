@@ -1,71 +1,137 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbarmain.css';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import './Navbar.css';
+import Dropdown from './Dropdown';
+import Dropdownmedi from './Dropdownmedi';
 import logo from "../HomePageAssets/Growwithchildlogo.png";
 import profilepic from "../HomePageAssets/profilepic.jpg";
 
-const Navbarmain = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+function Navbarmain() {
 
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(true);
+  const [click, setClick] = useState(false);
+  const [dropdowni, setDropdowni] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
   };
 
-  const handleDropdownClose = () => {
-    setIsDropdownOpen(false);
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
   };
 
+  const onMouseEnteri = () => {
+    if (window.innerWidth < 960) {
+      setDropdowni(false);
+    } else {
+      setDropdowni(true);
+    }
+  };
+
+  const onMouseLeavei = () => {
+    if (window.innerWidth < 960) {
+      setDropdowni(false);
+    } else {
+      setDropdowni(false);
+    }
+  };
   return (
-    <nav onMouseLeave={handleDropdownClose}>
-      <div className="logo">
-        <img src={logo} alt="Logo" />
-        <h5>Grow with child</h5>
-      </div>
-      <div className="dropdown" onMouseEnter={handleDropdownToggle}>
-        <Link to="/home" className="dropdown-btn">Home</Link>
-      </div>
-      <div className="dropdown" onMouseEnter={handleDropdownToggle}>
-        <Link to="/schedule" className="dropdown-btn">Schedules</Link>
-        {isDropdownOpen && (
-          <div className="dropdown-content">
-            <Link to="/notify" className="dropdown-item">Notifications</Link>
-            <Link to="/schedule" className="dropdown-item">Vaccine schedules</Link>
-          </div>
-        )}
-      </div>
+    <>
+      <nav className="navbar">
+        <Link to='/home' className='navbar-logo' onClick={closeMobileMenu}>
+          <img src={logo} alt="Logo" />
+          <h5>Grow with child</h5>
+        </Link>
 
-      <div className="dropdown" onMouseEnter={handleDropdownToggle}>
-        <button className="dropdown-btn">Medical</button>
-        {isDropdownOpen && (
-          <div className="dropdown-content">
-            <Link to="/meetings" className="dropdown-item">MeetWithDoctor</Link>
-            <Link to="/medicalrecords" className="dropdown-item">medicalrecords</Link>
-            <Link to="/clinics" className="dropdown-item">clinics</Link>
-          </div>
-        )}
-      </div>
+        <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
 
-      <div className="dropdown" onMouseEnter={handleDropdownToggle}>
-        <Link to="/education" className="dropdown-item">For mothers</Link>
-        {isDropdownOpen && (
-          <div className="dropdown-content">
-            <Link to="/education" className="dropdown-item">For mothers</Link>
-            <Link to="/education" className="dropdown-item">For Fathers</Link>
-          </div>
-        )}
-      </div>
-      <div className="dropdown" onMouseEnter={handleDropdownToggle}>
-        <Link to="/devmiles" className="dropdown-btn">Devmilestones</Link>
-      </div>
-      <div className="dropdown" onMouseEnter={handleDropdownToggle}>
-        <Link to="/profile" className="dropdown-btn">Profile</Link>
-      </div>
-      <div className="user">
-        <img src={profilepic} alt="user" />
-        <h5><Link to="/myaccount"> My Account</Link></h5>
-      </div>
-    </nav>
-  );
-};
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+            <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>
+          <li
+            className='nav-item'
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+            <Link
+              to='/home'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Schedules
+            </Link>
+            {dropdown && <Dropdown />}
+          </li>
+          <li
+            className='nav-item'
+            onMouseEnter={onMouseEnteri}
+            onMouseLeave={onMouseLeavei}
+          >
+            <Link
+              to='/meetings'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+             Medical
+            </Link>
+            {dropdowni && <Dropdownmedi />}
+          </li>
+          <li className='nav-item'>
+            <Link
+             to="/devmiles"
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Devmilestones
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link
+              to="/profile"
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Profile
+            </Link>
+          </li>
+         
+          
+        <Link
+         to="/myaccount"
+         className='navbar-acc' onClick={closeMobileMenu}
+         >      
+         <img src={profilepic} alt="user" />
+         <h5>My Account</h5>
+         </Link>
+         
 
-export default Navbarmain;
+
+
+
+
+
+        </ul>
+
+      </nav>
+
+    </>
+  )
+}
+
+export default Navbarmain

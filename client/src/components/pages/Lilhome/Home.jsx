@@ -30,9 +30,7 @@ const Banner_homepage = () => {
   return (
     <>
       <Navbarmain />
-      <div
-        className="banner-container"
-      >
+      <div className="banner-container">
         {videoRefs.current.map((videoRef, index) => (
           <video
             key={index}
@@ -42,42 +40,33 @@ const Banner_homepage = () => {
             muted
             playsInline
             onEnded={handleVideoEnd}
-            className={`banner-video ${
-              index === currentVideoIndex ? 'visible' : ''
-            }`}
+            className={`banner-video ${index === currentVideoIndex ? 'visible' : ''}`}
           >
             <source
-              src={
-                index === 0
-                  ? Team1
-                  : index === 1
-                  ? Team2
-                  : Team3
-              }
+              src={index === 0 ? Team1 : index === 1 ? Team2 : Team3}
               type="video/mp4"
             />
           </video>
         ))}
-        <div className="banner-left">
+        <div className="banner-left"> 
           <div className="text-content">
             <div>
-              <span>Dear Father and Mother</span>
+              <span className="greeting">Dear Father and Mother</span>
             </div>
             <div>
-              <span>Welcome</span>
+              <span className="welcome">Welcome</span>
             </div>
             <div>
-              <p>
+              <p className="message">
                 "Grow with Child" community. It brings us immense joy to
                 accompany you on this incredible journey of parenting,
                 witnessing your child's growth, and celebrating every precious
                 milestone.
               </p>
             </div>
-            <button onClick={handleButtonClick}>Abouts</button>
+            <button className="about-button" onClick={handleButtonClick}>Abouts</button>
           </div>
         </div>
-       
       </div>
       <Footer/>
     </>

@@ -76,10 +76,10 @@ import { Box, Text, Checkbox, VStack } from '@chakra-ui/react';
 import Navbarmain from '../../NavbarMain/Navbarmain';
 import Footer from '../footer/Footer';
 import axios from 'axios';
-import { UserContext } from 'path/to/user/context'; // Importing user context
 
+import{useUser} from "../../../userContext"
 const DevelopmentMilestones = () => {
-    const { username } = useContext(UserContext); // Accessing username from user context
+    const { username } = useContext(useUser); // Accessing username from user context
     const [checklist, setChecklist] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
