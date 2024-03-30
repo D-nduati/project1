@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Divider, Input, Stack, Text } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'; 
+import { useUser } from '../../userContext'; // Import the useUser hook from UserContext
 
 const initialLogin = {
   username: "",
@@ -10,6 +11,7 @@ const initialLogin = {
 
 const Login_page = () => {
   const [login, setLogin] = useState(initialLogin);
+  const { setUsername } = useUser(); // Get setUsername from UserContext
   const navigate = useNavigate();
 
   // Define handleChange function before handleLogin
@@ -41,7 +43,11 @@ const Login_page = () => {
       });
 
       if (response.ok) {
-        toast.success("Login successful"); 
+        const userData = await response.json(); // Assuming the response contains user data
+     
+        setUsername(userData.username); // Update the username in the UserContext
+        
+        toast("Login successful"); 
         navigate("/home");
       } else {
         console.log("Invalid credentials");

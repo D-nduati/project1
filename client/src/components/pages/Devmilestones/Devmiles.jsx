@@ -13,6 +13,7 @@
 //     const fetchChecklist = async () => {
 //       try {
 //         const response = await axios.get('http://localhost:4040/devmiles/devmilestones'); 
+//         console.log(response)
 //         const initialCheckedState = response.data.reduce((acc, item) => {
 //           acc[item.id] = false;
 //           return acc;
@@ -70,6 +71,7 @@
 // };
 
 // export default DevelopmentMilestones;
+
 import React, { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { Box, Text, Checkbox, VStack } from '@chakra-ui/react';
@@ -78,15 +80,17 @@ import Footer from '../footer/Footer';
 import axios from 'axios';
 
 import{useUser} from "../../../userContext"
+
 const DevelopmentMilestones = () => {
-    const { username } = useContext(useUser); // Accessing username from user context
+  const { username } = useUser();
+  console.log(username)
     const [checklist, setChecklist] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         const fetchChecklist = async () => {
             try {
-                const response = await axios.get(`http://localhost:4040/devmiles/devmilestones?username=${username}`);
+                const response = await axios.get(`http://localhost:4040/devmiles/devmilestones`);
                 setChecklist(response.data.milestones);
                 setLoaded(true);
             } catch (error) {

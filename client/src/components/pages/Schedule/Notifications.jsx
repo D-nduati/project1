@@ -8,7 +8,7 @@ const Notifications = () => {
   const { username } = useUser();
   const [pregnancyDate, setPregnancyDate] = useState('');
   const [notifications, setNotifications] = useState([]);
-
+console.log(username)
   useEffect(() => {
     // Fetch pregnancy date from the database
     const fetchPregnancyDate = async () => {

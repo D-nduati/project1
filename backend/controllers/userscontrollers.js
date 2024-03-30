@@ -5,55 +5,52 @@ const sql = require('mssql/msnodesqlv8')
 
 module.exports = {
     //logging in 
-    login:async (req, res) => {
-      var config = {
+    login: async (req, res) => {
+      const { username, password } = req.body;
+      const config = {
         connectionString: 'Driver=SQL Server;Server=DESKTOP-5TSB55R\\SQLEXPRESS;Database=child;Trusted_Connection=true;'
-    };
-        const user = req.body;
+      };
+    
+      try {
         const pool = await sql.connect(config);
-      
-        try {
-          if (pool.connected) {
-            try {
-              console.log("database connected")
-              const result = await pool
-                .query(`SELECT * FROM users WHERE username = '${user.username}'`);
-      
-              const hashedPwd = result.recordset[0]?.password;
-              const userId = result.recordset[0]?.userid;
-      
-              if (hashedPwd && userId) {
-                const comparisonPwd = await bcrypt.compare(user.password, hashedPwd);
-      
-                if (comparisonPwd === true) {
-      
-                  console.log("success")
-                  res.status(200).json({
-                    success: true,
-                    message: 'Successfully logged in'
-                  });
-                } else {
-                  res.status(402).json({
-                    success: false,
-                    message: 'Invalid credentials'
-                  });
-                }
-              } else {
-                res.status(404).json({
-                  success: false,
-                  message: 'User not found'
-                });
-              }
-            } catch (error) {
-              console.log(error);
-              res.send(error);
-            }
-          }
-        } catch (err) {
-          console.error(err);
-          res.status(500).send({ message: 'Server error' });
+        if (!pool.connected) {
+          return res.status(500).json({ success: false, message: 'Database connection failed' });
         }
-      },
+    
+        const result = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);
+    
+        const hashedPwd = result.recordset[0]?.password;
+        const userId = result.recordset[0]?.userid;
+    
+        if (hashedPwd && userId) {
+          const comparisonPwd = await bcrypt.compare(password, hashedPwd);
+    
+          if (comparisonPwd === true) {
+            const userUsername = result.recordset[0]?.username; // Extract username from the result
+            return res.status(200).json({
+              success: true,
+              message: 'Successfully logged in',
+              username: userUsername // Send username back in the response
+            });
+          } else {
+            return res.status(402).json({
+              success: false,
+              message: 'Invalid credentials'
+            });
+          }
+        } else {
+          return res.status(404).json({
+            success: false,
+            message: 'User not found'
+          });
+        }
+      } catch (error) {
+        console.error(error);
+        return res.status(500).json({ success: false, message: 'Server error' });
+      }
+    },
+    
+    
       //signing in
       signup: async (req, res) => {
         var config = {

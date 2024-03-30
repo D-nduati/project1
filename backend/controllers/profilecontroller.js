@@ -29,13 +29,14 @@ module.exports = {
   myaccount: async (req, res) => {
     try {
       const { username } = req.params;
-      console.log(username);
+      
   
-      // Query the database to find the profile data associated with the username
+      //Query the database to find the profile data associated with the username
+      
       let pool = await sql.connect(config);
       const result = await pool.request()
-                            .input('username', sql.VarChar(255), username)
-                            .query('SELECT * FROM Profiledata WHERE username = @username');
+                            .input('username',username)
+                            .query('SELECT * FROM ProfileData WHERE username = @username');
   
       if (result.recordset.length === 0) {
         return res.status(404).json({ message: 'Profile not found' });

@@ -28,3 +28,6 @@ CREATE TABLE Appointment (
     physician NVARCHAR(255),
     contact NVARCHAR(255)
 );
+
+-- ALTER TABLE Appointment
+-- add column username Nvarchar(255)

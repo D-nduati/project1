@@ -24,8 +24,8 @@ export const Medi = [
       cName: 'dropdown-link'
     },
     {
-      title: 'educate',
-      path: '/education',
+      title: 'Medical records',
+      path: '/medicalrecords',
       cName: 'dropdown-link'
     }
   

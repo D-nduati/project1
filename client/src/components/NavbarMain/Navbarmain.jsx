@@ -103,14 +103,22 @@ function Navbarmain() {
           </li>
           <li className='nav-item'>
             <Link
+             to="/education"
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Educate
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link
               to="/profile"
               className='nav-links'
               onClick={closeMobileMenu}
             >
               Profile
             </Link>
-          </li>
-         
+          </li>        
           
         <Link
          to="/myaccount"
@@ -119,17 +127,9 @@ function Navbarmain() {
          <img src={profilepic} alt="user" />
          <h5>My Account</h5>
          </Link>
-         
-
-
-
-
-
-
         </ul>
 
       </nav>
-
     </>
   )
 }
