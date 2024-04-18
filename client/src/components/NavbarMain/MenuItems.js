@@ -1,6 +1,6 @@
 export const MenuItems = [
   {
-    title: 'Notifications',
+    title: 'Reports',
     path: '/notify',
     cName: 'dropdown-link'
   },
