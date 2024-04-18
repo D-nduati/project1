@@ -11,15 +11,13 @@ app.use(cors({
 const { profileroute } = require('./routescontrollers/profilerouter');
 const {usersroute} = require('./routescontrollers/usersroutes')
 const{devmilesroute} =require('./routescontrollers/devmilesroutes') 
-const appointmentsRouter = require('./routescontrollers/medicalroutes');
-
-
+ const {notify} =require ('./routescontrollers/notificationsrouter')
 
 
 app.use('/users', usersroute);
 app.use('/profileroute' ,profileroute);
 app.use('/devmiles',devmilesroute)
-app.use('/api', appointmentsRouter);
+app.use('/notify', notify);
 
 
 const port = 4040;

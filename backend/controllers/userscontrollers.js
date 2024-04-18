@@ -68,7 +68,7 @@ module.exports = {
               .input('username', user.username)
               .input('email', user.email)
               .input('password', hashed_pwd)
-              // .execute('createuser')
+              .execute('createuser')
       
             const useremail = user.email;
             console.log(useremail)
