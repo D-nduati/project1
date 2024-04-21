@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Educate.css'; // Import CSS file for styling
+import './Educate.css';
 import Navbarmain from '../../NavbarMain/Navbarmain'
 const EducationModule = () => {
   const [videos, setVideos] = useState([]);
@@ -15,10 +15,10 @@ const EducationModule = () => {
       const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
         params: {
           part: 'snippet',
-          maxResults: 10, // Adjust as needed
-          q: 'childcare|prenatal care|signs of labor|postnatal care', // Your search query
+          maxResults: 10, 
+          q: 'childcare|prenatal care|signs of labor|postnatal care', 
           type: 'video',
-          key: 'AIzaSyD9KTWtU9xb-T5dVCi3-6n83OHKv5O6yI8', // Replace with your API key
+          key: 'AIzaSyD9KTWtU9xb-T5dVCi3-6n83OHKv5O6yI8', 
           pageToken: nextPageToken
         }
       });

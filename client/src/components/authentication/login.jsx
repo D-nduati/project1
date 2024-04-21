@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Divider, Input, Stack, Text } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'; 
-import { useUser } from '../../userContext'; // Import the useUser hook from UserContext
+import { useUser } from '../../userContext'; 
 
 const initialLogin = {
   username: "",
@@ -11,10 +11,10 @@ const initialLogin = {
 
 const Login_page = () => {
   const [login, setLogin] = useState(initialLogin);
-  const { setUsername } = useUser(); // Get setUsername from UserContext
+  const { setUsername } = useUser(); 
   const navigate = useNavigate();
 
-  // Define handleChange function before handleLogin
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLogin((prevLogin) => ({
@@ -43,9 +43,9 @@ const Login_page = () => {
       });
 
       if (response.ok) {
-        const userData = await response.json(); // Assuming the response contains user data
+        const userData = await response.json(); 
      
-        setUsername(userData.username); // Update the username in the UserContext
+        setUsername(userData.username); 
         
         toast("Login successful"); 
         navigate("/home");
@@ -116,7 +116,7 @@ const Login_page = () => {
               }}
               onClick={handleLogin}
               value="Sign in"
-              type="button" // Change type to "button" to prevent form submission
+              type="button" 
             />
           </form>
           <Text mt={"30px"}>

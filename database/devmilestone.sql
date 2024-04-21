@@ -12,7 +12,21 @@ CREATE TABLE checklist (
     checkedState INT -- To store the checked state (1 for checked, 0 for unchecked)
 );
 
+ALTER TABLE checklist
+ADD itemId INT PRIMARY KEY IDENTITY(1,1)
+   
 
+ALTER TABLE checklist
+ADD username VARCHAR(100),
+    checkedState INT;
+
+    UPDATE checklist
+SET username = 'davidnduati'
+WHERE id IN (1, 2, 3,4,5,6,7,8)
+
+UPDATE checklist
+SET checkedState = 1
+WHERE id IN (1, 2, 3,4,5,6,7,8)
 
 -- Inserting 'First Trimester' checklist
 INSERT INTO checklist (category, actualitem) VALUES

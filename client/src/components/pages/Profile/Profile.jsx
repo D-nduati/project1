@@ -40,8 +40,6 @@ function Profile() {
     setProfilePicture(URL.createObjectURL(file));
   };
 
-
-
   return (
     <>
       <Navbarmain />
@@ -50,31 +48,30 @@ function Profile() {
           <label htmlFor="name">Mother's Name</label>
           <input
             id="name"
-            name="name"
+            name="MotherName"
             placeholder="Enter your full name"
           />
 
-              
-            <input
-              id="fatherName"
-              name="fatherName"
-              placeholder="Enter father's name"
-            />
-          
+          <label htmlFor="fatherName">Father's Name</label>
+          <input
+            id="fatherName"
+            name="FatherName"
+            placeholder="Enter father's name"
+          />
 
           <label htmlFor="dateOfExpectancy">
             Provide below the date when you became expectant
           </label>
           <input
             id="dateOfExpectancy"
-            name="dateOfExpectancy"
+            name="DateOfExpectancy"
             type="date"
           />
 
           <label htmlFor="nameOfChild">Name of Child</label>
           <input
             id="nameOfChild"
-            name="nameOfChild"
+            name="NameOfChild"
             placeholder="Enter the name of your child"
           />
 

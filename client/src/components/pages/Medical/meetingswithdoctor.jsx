@@ -9,7 +9,6 @@ const MeetWithDoctor = () => {
   const initialRows = 13;
 
   useEffect(() => {
-    // Fetch appointments data from the backend when the component mounts
     fetchAppointments();
   }, []);
 
@@ -26,7 +25,7 @@ const MeetWithDoctor = () => {
   const createEmptyAppointment = (index) => {
     const currentDate = new Date();
     const newDate = new Date(currentDate);
-    newDate.setDate(currentDate.getDate() + index); // Increment date based on the index
+    newDate.setDate(currentDate.getDate() + index); 
     const formattedDate = newDate.toISOString().split('T')[0];
 
     return {
@@ -42,7 +41,7 @@ const MeetWithDoctor = () => {
   const handleAddAppointment = () => {
     axios.post('http://localhost:4040/api/appointments', createEmptyAppointment(appointments.length))
       .then(response => {
-        fetchAppointments(); // Fetch updated appointments after adding
+        fetchAppointments(); 
       })
       .catch(error => {
         console.error('Error adding appointment:', error);

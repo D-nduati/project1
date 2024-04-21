@@ -13,7 +13,7 @@ console.log(username)
     // Fetch pregnancy date from the database
     const fetchPregnancyDate = async () => {
       try {
-        const response = await axios.get(`/notify/profile/${username}`);
+        const response = await axios.get(`http://localhost:4040/notify/profile/${username}`);
         setPregnancyDate(response.data.dateOfExpectancy);
         console.log(username)
       } catch (error) {
@@ -24,7 +24,7 @@ console.log(username)
     // Fetch notifications from development milestones
     const fetchDevelopmentMilestonesNotifications = async () => {
       try {
-        const response = await axios.get('/notify/developmentMilestones', {
+        const response = await axios.get('http://localhost:4040/notify/devMilestones', {
           params: { pregnancyDate, username }
         });
         setNotifications(prevNotifications => [
@@ -37,23 +37,11 @@ console.log(username)
     };
 
     // Fetch notifications from clinics
-    const fetchClinicsNotifications = async () => {
-      try {
-        const response = await axios.get('/notify/clinicsNotifications', {
-          params: { username }
-        });
-        setNotifications(prevNotifications => [
-          ...prevNotifications,
-          ...response.data.notifications
-        ]);
-      } catch (error) {
-        console.error('Error fetching clinics notifications:', error);
-      }
-    };
+   
 
     fetchPregnancyDate();
     fetchDevelopmentMilestonesNotifications();
-    fetchClinicsNotifications();
+   
   }, [username]); 
 
   return (

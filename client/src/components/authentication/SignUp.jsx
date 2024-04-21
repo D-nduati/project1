@@ -50,7 +50,7 @@ const Sign_Up_page = () => {
       try {
         const res = await axios.post("http://localhost:4040/users/signup", user);
         if (res.status === 201) {
-          navigate("/"); // Redirect to home page on successful signup
+          navigate("/");
           toast({
             title: "Signup Successful",
             description: "You have successfully signed up.",

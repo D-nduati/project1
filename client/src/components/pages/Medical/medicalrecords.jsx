@@ -1,25 +1,40 @@
-
 import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import './MedicalRecords.css'; // Make sure to import or adjust styles accordingly
+import axios from 'axios';
+import './MedicalRecords.css'; 
 import Navbarmain from '../../NavbarMain/Navbarmain';
 import Footer from '../footer/Footer';
 
-pdfjs.GlobalWorkerOptions.workerSrc = '../../../assets/cdnjs/pdf.worker.min.js'
 const MedicalRecords = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+
+ 
+  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
 
-  const handleFileUpload = () => {
-    if (selectedFile) {
-      // You can implement file upload logic here (e.g., API call to the server)
-      // For simplicity, let's just store the file name in state
+  const handleFileUpload = async () => {
+    if (!selectedFile) return;
+
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+
+    try {
+      const response = await axios.post('http://localhost:4040/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log(response.data.message);
+
+      // Store uploaded file in state
       setUploadedFiles([...uploadedFiles, selectedFile]);
       setSelectedFile(null);
+    } catch (error) {
+      console.error('Error uploading file:', error);
     }
   };
 
@@ -51,9 +66,8 @@ const MedicalRecords = () => {
   };
 
   return (
-    
     <div className="medical-records-container">
-      <Navbarmain/>
+      <Navbarmain />
       <h2>Medical Records</h2>
       <div>
         <input type="file" onChange={handleFileChange} />
@@ -69,12 +83,10 @@ const MedicalRecords = () => {
           </li>
         ))}
       </ul>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
 
 export default MedicalRecords;
-
-
 

@@ -5,10 +5,33 @@ var config = {
 };
 
 module.exports = {
+  // makeprofile: async (req, res) => {
+  //   const { MotherName, FatherName, DateOfExpectancy, NameOfChild, ProfilePictureURL } = req.body
+  //   try {
+  //     let pool = await sql.connect(config)
+  //     if (pool.connected) {
+  //       let result = await sql.Request()
+  //         .input('MotherName', MotherName)
+  //         .input('FatherName', FatherName)
+  //         .input('DateOfExpectancy', DateOfExpectancy)
+  //         .input('NameOfChild', NameOfChild)
+  //         .input('ProfilePictureURL', ProfilePictureURL)
+  //         .exec('InsertProfileData')
+
+  //       res.status(200).send("Data stored successfully!");
+
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     res.status(500).send("Internal Server Error");
+  //   }
+  // },
   makeprofile: async (req, res) => {
-    const { MotherName, FatherName, DateOfExpectancy, NameOfChild, ProfilePictureURL } = req.body
+    const { MotherName, FatherName, DateOfExpectancy, NameOfChild,ProfilePictureURL } = req.body;
+    // Assuming ProfilePictureURL is handled separately for file uploads
+  
     try {
-      let pool = await sql.connect(config)
+      let pool = await sql.connect(config);
       if (pool.connected) {
         let result = await sql.Request()
           .input('MotherName', MotherName)
@@ -16,16 +39,16 @@ module.exports = {
           .input('DateOfExpectancy', DateOfExpectancy)
           .input('NameOfChild', NameOfChild)
           .input('ProfilePictureURL', ProfilePictureURL)
-          .exec('InsertProfileData')
-
+          .exec('InsertProfileData');
+  
         res.status(200).send("Data stored successfully!");
-
       }
     } catch (error) {
       console.error("Error:", error);
       res.status(500).send("Internal Server Error");
     }
   },
+  
   myaccount: async (req, res) => {
     try {
       const { username } = req.params;
