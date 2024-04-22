@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Box, Divider, Input, Stack, Text } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,7 +15,6 @@ const Login_page = () => {
   const { setUsername } = useUser(); 
   const navigate = useNavigate();
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLogin((prevLogin) => ({
@@ -44,13 +44,19 @@ const Login_page = () => {
 
       if (response.ok) {
         const userData = await response.json(); 
-     
-        setUsername(userData.username); 
+        setUsername(userData.username);
+        console.log()
         
-        toast("Login successful"); 
-        navigate("/home");
+        if (userData.username=== "admin") {
+          // Redirect to admin panel
+          navigate("/admin");
+        } else {
+          // Redirect to regular user dashboard
+          navigate("/home");
+        }
+        toast("Login successful");
       } else {
-        console.log("Invalid credentials");
+        toast.error("Invalid credentials");
       }
     } catch (error) {
       console.error("Error:", error);
