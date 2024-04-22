@@ -8,8 +8,8 @@ import axios from 'axios';
 import{useUser} from "../../../userContext"
 
 const DevelopmentMilestones = () => {
-  const { username } = useUser();
-  console.log(username)
+    const { username } = useUser();
+    console.log(username)
     const [checklist, setChecklist] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
@@ -17,7 +17,11 @@ const DevelopmentMilestones = () => {
         const fetchChecklist = async () => {
             try {
                 const response = await axios.get(`http://localhost:4040/devmiles/devmilestones`);
-                setChecklist(response.data.milestones);
+                console.log(response.data)
+                setChecklist(response.data.milestones.map(item => ({
+                    ...item,
+                    checked: item.checkedState === 1 // Set checked based on checkedState
+                })));
                 setLoaded(true);
             } catch (error) {
                 console.error('Error fetching checklist data:', error);
@@ -30,15 +34,15 @@ const DevelopmentMilestones = () => {
     const handleCheckboxChange = async (itemId) => {
         try {
             const updatedChecklist = checklist.map(item => {
-                if (item.id === itemId) {
-                    return { ...item, checked: !item.checked }; // Update local state
+                if (item.itemId === itemId) {
+                    const updatedItem = { ...item, checked: !item.checked }; // Toggle checked state
+                    // Update the checked state in the database
+                    axios.put(`http://localhost:4040/devmiles/devmilestones/updateChecklistItem/${itemId}`, { checked: updatedItem.checked ? 1 : 0 });
+                    return updatedItem;
                 }
                 return item;
             });
             setChecklist(updatedChecklist);
-    
-            // Update the checked state in the database
-            await axios.put(`http://localhost:4040/devmiles/devmilestones/updateChecklistItem/${itemId}`, { checked: updatedChecklist.find(item => item.id === itemId).checked });
         } catch (error) {
             console.error('Error updating checklist item:', error);
         }
@@ -63,14 +67,14 @@ const DevelopmentMilestones = () => {
                     <VStack align="start" spacing="2">
                         {checklist.map((item) => (
                             <motion.div
-                                key={item.id}
+                                key={item.itemId}
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5 }}
                             >
                                 <Checkbox
                                     isChecked={item.checked}
-                                    onChange={() => handleCheckboxChange(item.id)}
+                                    onChange={() => handleCheckboxChange(item.itemId)}
                                     colorScheme="teal"
                                 >
                                     {item.category}: {item.actualitem}
@@ -86,3 +90,4 @@ const DevelopmentMilestones = () => {
 };
 
 export default DevelopmentMilestones;
+

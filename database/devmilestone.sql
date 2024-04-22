@@ -28,6 +28,9 @@ UPDATE checklist
 SET checkedState = 1
 WHERE id IN (1, 2, 3,4,5,6,7,8)
 
+UPDATE checklist SET checkedState = @checkedState WHERE itemId = @itemId
+
+
 -- Inserting 'First Trimester' checklist
 INSERT INTO checklist (category, actualitem) VALUES
 ('First Trimester', 'Take prenatal vitamins'),

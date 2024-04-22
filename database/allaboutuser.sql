@@ -37,26 +37,6 @@ EXEC createuser @fname='John', @lname='Doe', @username='jdoe', @email='john.doe@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 create procedure createuser
 @firstname varchar(100),
 @lastname varchar(100),

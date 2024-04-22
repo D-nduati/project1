@@ -1,58 +1,58 @@
-import React, { useState, useEffect, useContext } from 'react';
-import{useUser} from '../../../userContext' // Import your UserContext
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbarmain from '../../NavbarMain/Navbarmain';
-
+import { useUser } from '../../../userContext';
 
 const Notifications = () => {
   const { username } = useUser();
   const [pregnancyDate, setPregnancyDate] = useState('');
   const [notifications, setNotifications] = useState([]);
-console.log(username)
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    // Fetch pregnancy date from the database
     const fetchPregnancyDate = async () => {
       try {
         const response = await axios.get(`http://localhost:4040/notify/profile/${username}`);
         setPregnancyDate(response.data.dateOfExpectancy);
-        console.log(username)
       } catch (error) {
         console.error('Error fetching pregnancy date:', error);
       }
     };
 
-    // Fetch notifications from development milestones
     const fetchDevelopmentMilestonesNotifications = async () => {
       try {
         const response = await axios.get('http://localhost:4040/notify/devMilestones', {
           params: { pregnancyDate, username }
         });
-        setNotifications(prevNotifications => [
-          ...prevNotifications,
-          ...response.data.notifications
-        ]);
+        setNotifications(response.data.returndata);
       } catch (error) {
         console.error('Error fetching development milestones notifications:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    // Fetch notifications from clinics
-   
-
     fetchPregnancyDate();
     fetchDevelopmentMilestonesNotifications();
-   
-  }, [username]); 
+  }, [username, pregnancyDate]);
 
   return (
     <div>
       <Navbarmain />
       <h2>Notifications</h2>
-      <ul>
-        {notifications.map((notification, index) => (
-          <li key={index}>{notification}</li>
-        ))}
-      </ul>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {notifications.length === 0 ? (
+            <li>No notifications</li>
+          ) : (
+            notifications.map((notification, index) => (
+              <li key={index}>{notification}</li>
+            ))
+          )}
+        </ul>
+      )}
     </div>
   );
 };
