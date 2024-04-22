@@ -11,7 +11,7 @@ const { usersroute } = require('./routescontrollers/usersroutes');
 const { devmilesroute } = require('./routescontrollers/devmilesroutes');
 const { notify } = require('./routescontrollers/notificationsrouter');
 const router = require('./routescontrollers/medicalroutes');
-
+const {adminroute}= require('./routescontrollers/adminroutes')
 app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:3000',
@@ -45,6 +45,8 @@ app.use('/profileroute', profileroute);
 app.use('/devmiles', devmilesroute);
 app.use('/notify', notify);
 app.use('/api', router);
+app.use('/admin', adminroute);
+
 
 // File upload route
 const storage = multer.diskStorage({
