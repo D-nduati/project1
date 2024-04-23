@@ -58,7 +58,7 @@ const AdminPanel = () => {
           </Tbody>
         </Table>
       )}
-      <GenerateReport /> {/* Render the GenerateReport component */}
+      <GenerateReport /> 
     </Box>
   );
 };

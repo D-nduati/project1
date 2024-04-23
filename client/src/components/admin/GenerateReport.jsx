@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
-import { Button, Input, FormControl, FormLabel,useToast } from "@chakra-ui/react";
-
+import { Button, Input, FormControl, FormLabel } from "@chakra-ui/react";
+import axios from 'axios';
 
 const GenerateReport = () => {
   const [username, setUsername] = useState('');
-  const toast = useToast();
+
   const generateReport = async () => {
     if (!username) {
-      toast.error('Please enter a username');
+      console.error('Please enter a username');
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:4040/admin/generateReport', {
-        method: 'POST',
+      const response = await axios.post('http://localhost:4040/admin/generateReport', { username }, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username }),
       });
-      if (response.ok) {
-        const reportData = await response.json();
+      if (response.status === 200) {
+        const reportData = response.data;
         console.log(reportData);
       } else {
         console.error('Failed to generate report');
