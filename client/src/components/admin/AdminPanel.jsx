@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import logo from "../HomePageAssets/Growwithchildlogo.png";
 import './admin.css';
+import GenerateReport from './GenerateReport'; // Import the GenerateReport component
 
 const AdminPanel = () => {
   const [recentUsers, setRecentUsers] = useState([]);
@@ -11,7 +12,7 @@ const AdminPanel = () => {
       const response = await fetch('http://localhost:4040/admin/recentUsers');
       if (response.ok) {
         const users = await response.json();
-        setRecentUsers(users.data); // Store recent users in state
+        setRecentUsers(users.data);
       } else {
         console.error('Failed to fetch recent users');
       }
@@ -57,6 +58,7 @@ const AdminPanel = () => {
           </Tbody>
         </Table>
       )}
+      <GenerateReport /> {/* Render the GenerateReport component */}
     </Box>
   );
 };
